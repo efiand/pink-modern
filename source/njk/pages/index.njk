@@ -1,32 +1,15 @@
-{% extends "_layout.njk" %}
-
-{% set title = 'Главная' %}
+{% extends "layout.njk" %}
 
 {% block main %}
   <header class="promo page-main__promo">
-    <h1 class="visually-hidden">Pink</h1>
+    <h1 class="visually-hidden">Pink.</h1>
 
     <b class="promo__lead">Взгляните на жизнь иначе!</b>
 
     <a class="promo__button" href="#!">Скачать приложение</a>
 
-    <ul class="app-links promo__applinks">
-      <li class="app-links__item">
-        <a class="app-links__link app-links__link--apple" href="#!">
-          <span class="visually-hidden">Apple</span>
-        </a>
-      </li>
-      <li class="app-links__item">
-        <a class="app-links__link app-links__link--android" href="#!">
-          <span class="visually-hidden">Android</span>
-        </a>
-      </li>
-      <li class="app-links__item">
-        <a class="app-links__link app-links__link--windows" href="#!">
-          <span class="visually-hidden">Windows</span>
-        </a>
-      </li>
-    </ul>
+    {% set mix = 'promo__markets' %}
+    {% include 'blocks/markets.njk' %}
 
     <p class="promo__description">Доступно для iPhone, iPad, Android, Windows Phone, OS X, Windows 8</p>
   </header>
@@ -60,71 +43,8 @@
     </ul>
   </section>
 
-  <section class="tariffs page-main__tariffs">
-    <h2 class="visually-hidden">Тарифы</h2>
-
-    <table class="tariffs__table">
-      <thead class="">
-        <tr class="tariffs__names">
-          <th class="visually-hidden">
-            Свойства
-          </th>
-          <th class="tariffs__name">
-            База
-            <p class="tariffs__price">1,99 USD</p>
-          </th>
-          <th class="hit tariffs__name">
-            Стандарт
-            <span class="hit__content">Хит</span>
-            <p class="tariffs__price">3,99 USD</p>
-          </th>
-          <th class="tariffs__name">
-            Анлим
-            <p class="tariffs__price">9,99 USD</p>
-          </th>
-        </tr>
-      </thead>
-
-      <tbody class="tariffs__props">
-        <tr class="tariffs__details">
-          <th class="tariffs__detail">Розовый фильтр</th>
-          <td class="tariffs__detail">
-            <p class="tariffs__value tariffs__value--yes">Есть</p>
-          </td>
-          <td class="tariffs__detail">
-            <p class="tariffs__value tariffs__value--yes">Есть</p>
-          </td>
-          <td class="tariffs__detail">
-            <p class="tariffs__value tariffs__value--yes">Есть</p>
-          </td>
-        </tr>
-        <tr class="tariffs__details">
-          <th class="tariffs__detail">Смайлики</th>
-          <td class="tariffs__detail">
-            <p class="tariffs__value tariffs__value--no">Нет</p>
-          </td>
-          <td class="tariffs__detail">
-            <p class="tariffs__value tariffs__value--yes">Есть</p>
-          </td>
-          <td class="tariffs__detail">
-            <p class="tariffs__value tariffs__value--yes">Есть</p>
-          </td>
-        </tr>
-        <tr class="tariffs__details">
-          <th class="tariffs__detail">Комментарии</th>
-          <td class="tariffs__detail">
-            <p class="tariffs__value tariffs__value--no">Нет</p>
-          </td>
-          <td class="tariffs__detail">
-            <p class="tariffs__value tariffs__value--no">Нет</p>
-          </td>
-          <td class="tariffs__detail">
-            <p class="tariffs__value tariffs__value--yes">Есть</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+  {% set mix = 'page-main__tariffs' %}
+  {% include 'blocks/tariffs.njk' %}
 
   <footer class="contacts page-main__footer">
     <p class="contacts__heading">Остались вопросы?</p>

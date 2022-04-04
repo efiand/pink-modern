@@ -1,0 +1,56 @@
+{% macro value(has) %}
+  <td class="tariffs__detail">
+    <p class="tariffs__value tariffs__value--{{ has }}">
+      <span class="visually-hidden">
+        {{ 'Есть' if has == 'yes' else 'Нет' }}.
+      </span>
+    </p>
+  </td>
+{% endmacro %}
+
+<section class="tariffs {{ mix }}">
+  <h2 class="visually-hidden">Тарифы</h2>
+
+  <table class="tariffs__table">
+    <thead class="tariffs__header">
+      <tr class="tariffs__names">
+        <th class="visually-hidden">
+          Свойства
+        </th>
+
+        {% for tariff in data.tariffs %}
+          <th class="tariffs__name">
+            {{ tariff.title }}
+            <p class="tariffs__price">{{ tariff.price }} USD</p>
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+
+    <tbody class="tariffs__props">
+      <tr class="tariffs__details">
+        <th class="tariffs__detail">Розовый фильтр</th>
+
+        {% for tariff in data.tariffs %}
+          {{ value(tariff.filter) }}
+        {% endfor %}
+      </tr>
+
+      <tr class="tariffs__details">
+        <th class="tariffs__detail">Смайлики</th>
+
+        {% for tariff in data.tariffs %}
+          {{ value(tariff.smiles) }}
+        {% endfor %}
+      </tr>
+
+      <tr class="tariffs__details">
+        <th class="tariffs__detail">Комментарии</th>
+
+        {% for tariff in data.tariffs %}
+          {{ value(tariff.comments) }}
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</section>
