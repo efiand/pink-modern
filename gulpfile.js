@@ -32,7 +32,8 @@ const startServer = () => {
     cors: true,
     open: true,
     server: 'source',
-    ui: false
+    ui: false,
+    port: 2000
   });
 
   watch('source/njk/**/*.njk', series(testHTML, buildHTML, reload));

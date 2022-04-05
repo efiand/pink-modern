@@ -53,4 +53,12 @@
       </tr>
     </tbody>
   </table>
+
+  {% set togglers = {
+    mix: 'tariffs__togglers',
+    id: 'tariffs',
+    title: 'Тариф',
+    length: data.tariffs | length
+  } %}
+  {% include 'blocks/togglers.njk' %}
 </section>
