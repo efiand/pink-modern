@@ -2,7 +2,7 @@
   class="fields__input"
   id="{{ fields.name }}-{{ i }}"
   name="{{ fields.name }}[]"
-  placeholder="{{ field.placeholder }}{{ ' * ' if field.required }}"
+  placeholder="{{ field.placeholder }}{{ ' *' if field.required }}"
   {{ 'required' if field.required }}
 {% endmacro %}
 
@@ -18,7 +18,7 @@
       {% if field.type == 'textarea' %}
         <textarea {{ attrs(field, loop.index) }}></textarea>
       {% else %}
-        <input {{ attrs(field, loop.index) }} {{ 'type=' + field.type if field.type }}>
+        <input {{ attrs(field, loop.index) }} type="{{ field.type or 'text' }}">
       {% endif %}
     </p>
   {% endfor %}
