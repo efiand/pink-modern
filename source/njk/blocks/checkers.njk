@@ -7,7 +7,7 @@
         <input
           class="checkers__input checkers__input--{{ checkers.type }}"
           id="{{ checkers.name }}-{{ loop.index }}"
-          name="{{ checkers.name }}{{ '[]' if checkers.type == 'radio' }}"
+          name="{{ checkers.name }}{{ '[]' if checkers.type != 'radio' }}"
           type="{{ checkers.type }}"
           value="{{ checker.value }}"
           {{ 'checked' if checker.checked }}

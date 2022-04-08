@@ -8,16 +8,19 @@
     {
       title: 'Фамилия',
       placeholder: 'Укажите фамилию',
+      pattern: "[А-Яа-яЁё]+",
       required: true
     },
     {
       title: 'Имя',
       placeholder: 'Введите ваше имя',
+      pattern: "[А-Яа-яЁё]+",
       required: true
     },
     {
       title: 'Отчество',
-      placeholder: 'Ну и отчество тоже'
+      placeholder: 'Ну и отчество тоже',
+      pattern: "[А-Яа-яЁё]+"
     }
   ]
 } %}
@@ -63,7 +66,9 @@
   list: [
     {
       title: 'Номер телефона',
-      placeholder: 'Номер, пожалуйста'
+      placeholder: 'Номер, пожалуйста',
+      type: 'tel',
+      pattern: '^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$'
     },
     {
       title: 'Адрес почты',
