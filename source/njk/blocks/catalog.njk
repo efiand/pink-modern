@@ -1,11 +1,7 @@
-<section class="catalog {{ mix }}">
-  <h2 class="visually-hidden">{{ data.catalog.heading }}</h2>
-
-  <ul class="catalog__list">
-    {% for photo in data.catalog.list %}
-      <li class="catalog__item">
-        {% include 'blocks/photo.njk' %}
-      </li>
-    {% endfor %}
-  </ul>
-</section>
+<ul class="catalog {{ mix }}">
+  {% for photo in data.catalog %}
+    <li class="catalog__item">
+      {% include 'blocks/photo.njk' %}
+    </li>
+  {% endfor %}
+</ul>

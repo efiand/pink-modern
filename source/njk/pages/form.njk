@@ -1,15 +1,9 @@
-{% extends "layout.njk" %}
+{% extends 'layout.njk' %}
 
 {% block main %}
-  {% set mix = 'page-main__header' %}
-  {% include 'blocks/main-header.njk' %}
-
-  <p class="page-main__description">
-    Поделитесь своей историей и получите шанс выиграть ценный приз — 1000 миль на вашу бонусную карту!
-  </p>
-
-  {% set mix = 'page-main__form' %}
-  {% include 'blocks/form.njk' %}
+  {% set mix = 'page-main__content' %}
+  {% set slot = 'form' %}
+  {% include 'blocks/content.njk' %}
 {% endblock %}
 
 {% block modal %}

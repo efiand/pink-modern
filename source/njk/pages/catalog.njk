@@ -1,20 +1,9 @@
-{% extends "layout.njk" %}
+{% extends 'layout.njk' %}
 
 {% block main %}
-  {% set mix = 'page-main__header' %}
-  {% include 'blocks/main-header.njk' %}
-
-  <p class="page-main__description">
-    Взгляните на фотографии, которые выкладывают пользователи! Видите, как не хватает ваших?
-  </p>
-
-  {% set mix = 'page-main__catalog' %}
-  {% include 'blocks/catalog.njk' %}
-
-  <p class="page-main__description">
-    Затмите их всех!<br>
-    Выкладывайте все, что накопилось в телефоне!
-  </p>
+  {% set mix = 'page-main__content' %}
+  {% set slot = 'catalog' %}
+  {% include 'blocks/content.njk' %}
 
   {% set mix = 'page-main__add' %}
   {% include 'blocks/add.njk' %}

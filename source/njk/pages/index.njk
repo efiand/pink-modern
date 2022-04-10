@@ -1,9 +1,4 @@
-{% extends "layout.njk" %}
-
-{% macro sliderSlot(block) %}
-  {% set mix = 'slider__list' %}
-  {% include 'blocks/' + block + '.njk' %}
-{% endmacro %}
+{% extends 'layout.njk' %}
 
 {% block main %}
   {% set mix = 'page-main__promo' %}
@@ -15,7 +10,7 @@
   {% set slider = {
     mix: 'page-main__reviews',
     heading: data.reviews.heading,
-    slot: sliderSlot('reviews'),
+    slot: 'reviews',
     togglers: {
       title: 'Отзыв',
       length: data.reviews.list | length
@@ -26,7 +21,7 @@
   {% set slider = {
     mix: 'page-main__tariffs',
     heading: data.tariffs.heading,
-    slot: sliderSlot('tariffs'),
+    slot: 'tariffs',
     togglers: {
       title: 'Тариф',
       length: data.tariffs.list | length

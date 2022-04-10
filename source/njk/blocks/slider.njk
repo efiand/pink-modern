@@ -2,7 +2,8 @@
   <h2 class="visually-hidden">{{ slider.heading }}</h2>
 
   <div class="slider__wrapper">
-    {{ slider.slot }}
+    {% set mix = 'slider__list' %}
+    {% include 'blocks/' + slider.slot + '.njk' %}
   </div>
 
   {% set togglers = {
