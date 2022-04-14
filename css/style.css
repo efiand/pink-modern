@@ -3,14 +3,26 @@
   --color-white: #ffffff;
   --color-white-15: rgba(255, 255, 255, 0.15);
   --color-darkblue: #283645;
+  --color-blackblue: #1d2631;
   --color-pink: #d22856;
   --color-pink-30: rgba(210, 40, 86, 0.3);
   min-width: 320px;
   font-size: 14px;
+  line-height: 1.2;
   font-family: "Open Sans", "Arial", sans-serif;
 }
 body {
   margin: 0;
+}
+a {
+  color: inherit;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+  transition-property: color, opacity, background-color, border-color, box-shadow;
+}
+img {
+  max-width: 100%;
+  object-fit: contain;
 }
 .page {
   display: flex;
@@ -19,6 +31,9 @@ body {
 }
 .page__main {
   flex-grow: 1;
+}
+.picture__image {
+  display: block;
 }
 .page-header {
   padding: 23px 20px;
@@ -44,7 +59,6 @@ body {
   font-size: 18px;
   line-height: 30px;
   text-align: center;
-  color: inherit;
   text-transform: uppercase;
   text-decoration: none;
   border-top: 1px solid var(--color-white-15);
@@ -54,6 +68,88 @@ body {
 }
 .nav__link:active {
   color: var(--color-pink-30);
+}
+.promo {
+  padding: 0 20px 31px;
+  color: var(--color-white);
+  background-color: var(--color-blackblue);
+}
+.promo__collage {
+  margin: 0 -20px 28px;
+  background-image: url("../img/back-promo-mobile.jpg");
+  background-size: cover;
+}
+.promo__lead {
+  display: block;
+  padding: 89px 20px 29px;
+  font-weight: 300;
+  font-size: 24px;
+  text-align: center;
+}
+.promo__picture {
+  display: table;
+  margin: 0 auto;
+}
+.promo__button {
+  display: block;
+  margin: 0 0 22px;
+  padding: 15px 20px 16px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  border: 3px solid;
+  border-radius: 29px;
+}
+.promo__button:hover {
+  color: var(--color-pink);
+}
+.promo__button:active {
+  color: var(--color-pink-30);
+}
+.promo__markets {
+  margin: 0 0 11px;
+}
+.promo__description {
+  margin: 0;
+  font-weight: 300;
+  line-height: 24px;
+  text-align: center;
+}
+.markets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+.markets__item {
+  margin: 0 6px;
+}
+.markets__link {
+  display: block;
+  width: 47px;
+  height: 56px;
+  padding: 10px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.markets__link--apple {
+  background-image: url("../img/market-apple.svg");
+}
+.markets__link--android {
+  background-image: url("../img/market-android.svg");
+  background-position: 50% 16px;
+}
+.markets__link--windows {
+  background-image: url("../img/market-windows.svg");
+  background-position: 50% 22px;
+}
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
 }
 @font-face {
   font-weight: 300;
