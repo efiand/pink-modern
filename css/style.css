@@ -6,7 +6,9 @@
   --color-white: #ffffff;
   --color-white-15: rgba(255, 255, 255, 0.15);
   --color-darkblue: #283645;
+  --color-darkblue-60: rgba(40, 54, 69, 0.6);
   --color-darkblue-30: rgba(40, 54, 69, 0.3);
+  --color-darkblue-10: rgba(40, 54, 69, 0.1);
   --color-blackblue: #1d2631;
   --color-pink: #d22856;
   --color-pink-30: rgba(210, 40, 86, 0.3);
@@ -23,6 +25,8 @@ body {
 }
 a {
   color: inherit;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
   transition-timing-function: ease-in-out;
   transition-duration: 0.2s;
   transition-property: color, opacity, background-color, border-color, box-shadow;
@@ -99,6 +103,7 @@ img {
   padding: 0;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 .togglers__control::before {
   content: "";
@@ -107,10 +112,23 @@ img {
   margin: auto;
   background-color: var(--color-darkblue-30);
   border-radius: 50%;
-  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.togglers__control:hover::before {
+  background-color: var(--color-darkblue-60);
+}
+.togglers__control:active::before {
+  background-color: var(--color-darkblue-10);
+}
+.togglers__control--active {
+  cursor: default;
+}
+.togglers__control--active::before,
+.togglers__control--active:hover::before,
+.togglers__control--active:active::before {
+  background-color: var(--color-white);
 }
 .togglers__control--active::before {
-  background-color: var(--color-white);
   box-shadow: 0 0 0 3px var(--color-darkblue);
 }
 .labelled {
@@ -146,12 +164,30 @@ img {
   transition: background-color 0.3s 0.2s ease-in-out;
 }
 .page-header__toggler {
+  display: flex;
   width: 50px;
   height: 24px;
   margin-bottom: 3px;
-  background-image: url("../img/icon-menu-open.svg");
-  background-repeat: no-repeat;
-  background-position: 50%;
+  color: var(--color-white);
+}
+.page-header__toggler:hover {
+  color: var(--color-pink);
+}
+.page-header__toggler:active {
+  color: var(--color-pink-30);
+}
+.page-header__toggler::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon-menu-open.svg");
+          mask-image: url("../img/icon-menu-open.svg");
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: 50%;
+          mask-position: 50%;
 }
 .page-header__nav {
   position: absolute;
@@ -170,7 +206,13 @@ img {
 }
 .page-header--opened .page-header__toggler {
   width: 23px;
-  background-image: url("../img/icon-menu-close.svg");
+}
+.page-header--opened .page-header__toggler::before {
+  height: 23px;
+  -webkit-mask-image: url("../img/icon-menu-close.svg");
+          mask-image: url("../img/icon-menu-close.svg");
+  -webkit-mask-size: 23px;
+          mask-size: 23px;
 }
 .page-header--opened .page-header__nav {
   top: 100%;
@@ -448,7 +490,7 @@ img {
   background-image: url("../img/icon-no.svg");
 }
 .contacts {
-  padding: 39px 20px;
+  padding: 39px 20px 0;
   font-weight: 300;
   font-size: 24px;
   line-height: 1.3617;
@@ -480,6 +522,14 @@ img {
   color: var(--color-pink);
   text-decoration: none;
 }
+.contacts__link:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+.contacts__link:active {
+  color: var(--color-darkblue-30);
+  text-decoration: none;
+}
 .contacts__map {
   position: relative;
   height: 62.5vw;
@@ -497,6 +547,52 @@ img {
   height: 12vw;
   background-image: url("../img/icon-triangle-fluid.svg");
   background-size: 100% 12vw;
+}
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+.socials__item {
+  margin: 9px 0 0 9px;
+}
+.socials__link {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--color-darkblue-10);
+  border-radius: 50%;
+}
+.socials__link:hover {
+  border-color: var(--color-darkblue);
+}
+.socials__link:active {
+  border-color: var(--color-darkblue-10);
+}
+.logo-dev {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 18px;
+  text-decoration: none;
+}
+.logo-dev__image {
+  margin-left: 15px;
+}
+.page-footer {
+  padding: 40px 20px;
+  text-align: center;
+}
+.page-footer__logo {
+  display: table;
+  min-height: 40px;
+  margin: 0 auto 38px;
+  outline: 2px solid var(--color-pink);
+}
+.page-footer__socials {
+  margin: -9px 0 38px -9px;
 }
 .visually-hidden {
   position: fixed;
