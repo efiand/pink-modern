@@ -494,9 +494,9 @@ img {
   top: -6px;
   right: 0;
   left: 0;
-  height: 39px;
+  height: 12vw;
   background-image: url("../img/icon-triangle-fluid.svg");
-  background-size: 100% 39px;
+  background-size: 100% 12vw;
 }
 .visually-hidden {
   position: fixed;
