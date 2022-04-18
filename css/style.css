@@ -119,9 +119,9 @@ img {
 }
 .labelled__label {
   position: absolute;
-  top: 85px;
-  left: -44px;
-  width: 50%;
+  top: 18px;
+  left: -42px;
+  width: 100px;
   margin: 0;
   padding: 0 20px;
   font-weight: 400;
@@ -131,7 +131,6 @@ img {
   color: var(--color-white);
   background-color: var(--color-pink);
   transform: rotate(-45deg);
-  transform-origin: 0 0;
 }
 .page-header {
   z-index: 1;
