@@ -134,13 +134,17 @@ img {
   transform-origin: 0 0;
 }
 .page-header {
+  z-index: 1;
+  color: var(--color-white);
+}
+.page-header__top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0;
   padding: 21px 20px 18px;
-  color: var(--color-white);
   background-color: var(--color-black-30);
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s 0.2s ease-in-out;
 }
 .page-header__toggler {
   width: 50px;
@@ -155,13 +159,15 @@ img {
   top: -100vh;
   right: 0;
   left: 0;
+  z-index: -1;
   background-color: var(--color-darkblue);
   border-top: 2px solid var(--color-darkblue);
   visibility: hidden;
   transition: top 0.3s ease-out, visibility 0.3s;
 }
-.page-header--opened {
+.page-header--opened .page-header__top {
   background-color: var(--color-darkblue);
+  transition: background-color 0.2s ease-in-out;
 }
 .page-header--opened .page-header__toggler {
   width: 23px;
