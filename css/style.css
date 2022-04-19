@@ -1,3 +1,7 @@
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
+}
 :root {
   --color-black: #000000;
   --color-black-30: rgba(0, 0, 0, 0.3);
@@ -37,10 +41,6 @@ a {
 img {
   max-width: 100%;
   object-fit: contain;
-}
-.visually-hidden {
-  position: fixed;
-  transform: scale(0);
 }
 .page {
   display: flex;
@@ -186,6 +186,53 @@ img {
   color: var(--color-white);
   background-color: var(--color-pink);
   transform: rotate(-45deg);
+}
+.range {
+  height: 16px;
+  background-color: transparent;
+  -webkit-appearance: none;
+          appearance: none;
+}
+.range::-webkit-slider-runnable-track {
+  height: 2px;
+  background-color: var(--color-darkblue);
+}
+.range::-moz-range-track {
+  height: 2px;
+  background-color: var(--color-darkblue);
+}
+.range::-webkit-slider-thumb {
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-lightgrey);
+  border: 2px solid var(--color-pink);
+  border-radius: 50%;
+  transform: translateY(-5px);
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  -webkit-appearance: none;
+          appearance: none;
+}
+.range::-webkit-slider-thumb:active {
+  background-color: var(--color-pink);
+}
+.range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-lightgrey);
+  border: 2px solid var(--color-pink);
+  border-radius: 50%;
+  transform: translateY(1px);
+  cursor: pointer;
+  -moz-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  appearance: none;
+}
+.range::-moz-range-thumb:active {
+  background-color: var(--color-pink);
 }
 .page-header {
   z-index: 1;
@@ -641,7 +688,7 @@ img {
 .photo__likes-form {
   display: flex;
   align-items: center;
-  padding: 0 13px 19px;
+  padding: 0 17px 19px;
   color: var(--color-pink);
 }
 .photo__likes {
@@ -650,7 +697,8 @@ img {
   text-transform: uppercase;
 }
 .photo__like-submit {
-  margin-right: 15px;
+  margin-right: 18px;
+  padding: 0;
   color: var(--color-pink);
   background-color: transparent;
   border: none;
@@ -675,17 +723,38 @@ img {
   background-color: var(--color-lightgrey);
 }
 .add__file {
-  margin: 0;
-}
-.add__file-chooser {
-  display: block;
+  display: flex;
   max-width: 300px;
   height: 374px;
   margin: 0 auto;
-  background-image: url("../img/photo-add-mobile.jpg");
+}
+.add__file:focus-within {
+  outline: 2px solid var(--color-pink);
+}
+.add__file-chooser {
+  --image: url("../img/photo-add-mobile.jpg");
+  --size: 100%;
+  --pink: 0;
+  --contrast: 1;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  margin: auto;
+  background-image: var(--image);
+  background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: cover;
   cursor: pointer;
+  filter: contrast(var(--contrast));
+}
+.add__file-chooser::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-pink);
+  opacity: var(--pink);
 }
 .add__filters {
   position: relative;
@@ -740,20 +809,18 @@ img {
   height: 32px;
 }
 .add__range {
+  position: absolute;
   bottom: 28px;
   left: 67px;
+  display: none;
   width: calc(100% - 87px);
-  height: 16px;
   margin: 0;
-  position: fixed;
-  transform: scale(0);
 }
 .add__filter--active .add__filter-toggler {
   color: var(--color-pink);
 }
 .add__filter--active .add__range {
-  position: absolute;
-  transform: none;
+  display: block;
 }
 .add__button {
   width: 100%;

@@ -4,18 +4,41 @@
 }
 
 .add__file {
-  margin: 0;
-}
-
-.add__file-chooser {
-  display: block;
+  display: flex;
   max-width: 300px;
   height: 374px;
   margin: 0 auto;
-  background-image: url("../img/photo-add-mobile.jpg");
+
+  &:focus-within {
+    outline: 2px solid var(--color-pink);
+  }
+}
+
+.add__file-chooser {
+  --image: url("../img/photo-add-mobile.jpg");
+  --size: 100%;
+  --pink: 0;
+  --contrast: 1;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  margin: auto;
+  background-image: var(--image);
+  background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: cover;
   cursor: pointer;
+  filter: contrast(var(--contrast));
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-pink);
+    opacity: var(--pink);
+  }
 }
 
 .add__filters {
@@ -81,13 +104,12 @@
 }
 
 .add__range {
+  position: absolute;
   bottom: 28px;
   left: 67px;
+  display: none;
   width: calc(100% - 87px);
-  height: 16px;
   margin: 0;
-
-  .visually-hidden();
 }
 
 .add__filter--active {
@@ -96,8 +118,7 @@
   }
 
   .add__range {
-    position: absolute;
-    transform: none;
+    display: block;
   }
 }
 
