@@ -8,7 +8,7 @@ export default class Add {
     this._filterTogglerElements = this._formElement.querySelectorAll('.add__filter-toggler');
     this._cropElement = this._formElement.querySelector('[name="crop"]');
     this._pinkElement = this._formElement.querySelector('[name="pink"]');
-    this._contrastElement = this._formElement.querySelector('[name="contrast"]');
+    this._grayscaleElement = this._formElement.querySelector('[name="grayscale"]');
     this._resetELement = this._formElement.querySelector('[type="reset"]');
 
     this._defaultBg = this._labelElement.style.backgroundImage;
@@ -21,13 +21,13 @@ export default class Add {
     this._changeFileHandler = this._changeFileHandler.bind(this);
     this._inputCropHandler = this._inputCropHandler.bind(this);
     this._inputPinkHandler = this._inputPinkHandler.bind(this);
-    this._inputContrastHandler = this._inputContrastHandler.bind(this);
+    this._inputGrayscaleHandler = this._inputGrayscaleHandler.bind(this);
     this._resetHandler = this._resetHandler.bind(this);
 
     this._fileElement.addEventListener('change', this._changeFileHandler);
     this._cropElement.addEventListener('input', this._inputCropHandler);
     this._pinkElement.addEventListener('input', this._inputPinkHandler);
-    this._contrastElement.addEventListener('input', this._inputContrastHandler);
+    this._grayscaleElement.addEventListener('input', this._inputGrayscaleHandler);
     this._filtersELement.addEventListener('click', this._clickHandler);
     this._formElement.addEventListener('reset', this._resetHandler);
   }
@@ -45,8 +45,8 @@ export default class Add {
     this._labelElement.style.setProperty('--pink', this._pinkElement.value / 100);
   }
 
-  _inputContrastHandler() {
-    this._labelElement.style.setProperty('--contrast', this._contrastElement.value / 100);
+  _inputGrayscaleHandler() {
+    this._labelElement.style.setProperty('--grayscale', this._grayscaleElement.value / 100);
   }
 
   _clickHandler(evt) {
@@ -68,12 +68,12 @@ export default class Add {
   _clearFilters(image) {
     this._cropElement.value = 100;
     this._pinkElement.value = 0;
-    this._contrastElement.value = 100;
+    this._grayscaleElement.value = 0;
 
     this._labelElement.style.setProperty('--image', image);
     this._labelElement.style.setProperty('--size', '100%');
     this._labelElement.style.setProperty('--pink', 0);
-    this._labelElement.style.setProperty('--contrast', 1);
+    this._labelElement.style.setProperty('--grayscale', 0);
   }
 
   _resetHandler(evt) {
