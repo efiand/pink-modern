@@ -19,6 +19,8 @@
   --color-pink: #d22856;
   --color-pink-60: rgba(210, 40, 86, 0.6);
   --color-pink-30: rgba(210, 40, 86, 0.3);
+  --color-green: #2aab6d;
+  --color-darkgreen: #1c9b5e;
   --skew-lightgrey-gradient: linear-gradient(to right bottom, var(--color-white) 50%, var(--color-lightgrey) 50%);
   --scrollbar-width: 0;
   min-width: 320px;
@@ -86,6 +88,33 @@ img {
 }
 .content__slot--form {
   margin-top: -16px;
+}
+.button {
+  box-sizing: border-box;
+  padding: 16px 20px 17px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  color: var(--color-white);
+  text-transform: uppercase;
+  background-color: var(--color-green);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.button:hover {
+  background-color: var(--color-darkgreen);
+}
+.button:active {
+  color: var(--color-white-30);
+  background-color: var(--color-darkgreen);
+}
+.button:disabled {
+  color: var(--color-white);
+  background-color: var(--color-grey);
+  cursor: not-allowed;
 }
 .picture__image {
   display: block;
@@ -875,6 +904,22 @@ img {
 .form__fieldset {
   margin: 0;
 }
+.form__footer {
+  padding: 0 20px 16px;
+}
+.form__submit {
+  width: 100%;
+  margin-bottom: 34px;
+}
+.form__description {
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.form__sign {
+  color: var(--color-pink);
+}
 .fieldset {
   padding: 31px 20px 42px;
   border: none;
@@ -960,15 +1005,24 @@ img {
   font-family: inherit;
   color: inherit;
   border: 2px solid var(--color-grey);
-  border-radius: 1px;
-}
-.field__input--message {
-  min-height: 201px;
-  resize: none;
+  border-radius: 3px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
 }
 .field__input::placeholder {
   color: inherit;
   opacity: 1;
+}
+.field__input:hover,
+.field__input:focus-visible {
+  border-color: var(--color-darkblue);
+}
+.field__input:active {
+  border-color: var(--color-pink);
+}
+.field__input--message {
+  min-height: 201px;
+  resize: none;
 }
 .checker {
   display: flex;
@@ -980,6 +1034,7 @@ img {
   height: 35px;
   margin: 0 24px 0 0;
   outline: none;
+  cursor: pointer;
   -webkit-appearance: none;
           appearance: none;
 }
@@ -1012,7 +1067,7 @@ img {
 }
 .checker__input--checkbox::before {
   top: -1px;
-  border-radius: 1px;
+  border-radius: 3px;
 }
 .checker__input--checkbox::after {
   top: 10px;
@@ -1053,17 +1108,40 @@ img {
   margin: 9px 0 0 9px;
 }
 .socials__link {
-  display: block;
+  display: flex;
   width: 48px;
   height: 48px;
   border: 3px solid var(--color-darkblue-10);
   border-radius: 50%;
+}
+.socials__link::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  background-color: var(--color-pink);
+  transition: inherit;
 }
 .socials__link:hover {
   border-color: var(--color-darkblue);
 }
 .socials__link:active {
   border-color: var(--color-darkblue-10);
+}
+.socials__link:active::before {
+  background-color: var(--color-pink-30);
+}
+.socials__link--vkontakte::before {
+  -webkit-mask-image: url("../img/icon-social-vkontakte.svg");
+          mask-image: url("../img/icon-social-vkontakte.svg");
+}
+.socials__link--telegram::before {
+  -webkit-mask-image: url("../img/icon-social-telegram.svg");
+          mask-image: url("../img/icon-social-telegram.svg");
+}
+.socials__link--youtube::before {
+  -webkit-mask-image: url("../img/icon-social-youtube.svg");
+          mask-image: url("../img/icon-social-youtube.svg");
 }
 .logo-dev {
   display: inline-flex;
