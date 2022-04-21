@@ -44,10 +44,22 @@ img {
   max-width: 100%;
   object-fit: contain;
 }
+:focus {
+  outline: 2px solid var(--color-pink);
+  outline-offset: 0;
+}
+@supports selector(:focus-visible) {
+  :focus {
+    outline: none;
+  }
+}
+:focus-visible {
+  outline: 2px solid var(--color-pink);
+  outline-offset: 0;
+}
 .page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 .page__header {
   position: absolute;
@@ -57,6 +69,33 @@ img {
 }
 .page__main {
   flex-grow: 1;
+}
+.viewport {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  overflow-y: scroll;
+}
+.viewport--page,
+.viewport:target {
+  display: flex;
+}
+.viewport__modal {
+  position: relative;
+  margin: auto;
+}
+.viewport__back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.viewport__back:focus-visible {
+  outline-offset: -2px;
 }
 .content__header {
   min-height: 99px;
@@ -98,6 +137,7 @@ img {
   text-align: center;
   color: var(--color-white);
   text-transform: uppercase;
+  text-decoration: none;
   background-color: var(--color-green);
   border: none;
   border-radius: 3px;
@@ -1167,6 +1207,32 @@ img {
 }
 .page-footer__socials {
   margin: -9px 0 38px -9px;
+}
+.modal {
+  max-width: 460px;
+  padding: 40px 0 0;
+  text-align: center;
+  background-color: var(--color-white);
+  box-shadow: 0 7px 15px 0 rgba(0, 1, 1, 0.15);
+}
+.modal__title {
+  margin: 0 22px 30px;
+  font-size: 18px;
+  line-height: 24px;
+}
+.modal__text {
+  margin: 0 22px 30px;
+  line-height: 24px;
+}
+.modal__footer {
+  padding: 0 22px 52px;
+}
+.modal__footer--success {
+  padding-top: 52px;
+  background-color: var(--color-lightgrey);
+}
+.modal__button {
+  display: block;
 }
 @font-face {
   font-weight: 300;
