@@ -66,6 +66,7 @@ img {
   top: 0;
   right: 0;
   left: 0;
+  z-index: 1;
 }
 .page__main {
   flex-grow: 1;
@@ -313,7 +314,6 @@ img {
   background-color: var(--color-pink);
 }
 .page-header {
-  z-index: 1;
   color: var(--color-white);
 }
 .page-header__top {
