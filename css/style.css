@@ -30,7 +30,6 @@
   color: var(--color-darkblue);
 }
 body {
-  min-height: 100vh;
   margin: 0;
 }
 a {
@@ -78,6 +77,7 @@ img {
   bottom: 0;
   left: 0;
   display: none;
+  min-height: 100vh;
   overflow-y: scroll;
 }
 .viewport--page,
