@@ -840,7 +840,7 @@ img {
   justify-content: center;
   align-items: center;
   margin: -35px 0 38px -47px;
-  padding: 42px 0 73px;
+  padding: 42px 20px 73px;
   border: none;
 }
 .add__filters::after {
