@@ -4,7 +4,7 @@ const CENTER_LAT = 59.9366;
 const MARKER_LAT = 59.93628;
 const LNG = 30.321095;
 const ZOOM = 16;
-const CDN = 'https://unpkg.com/leaflet@1.7.1/dist1';
+const CDN = 'https://unpkg.com/leaflet@1.7.1/dist';
 const CSS_CODE = `<link rel="stylesheet" href="${CDN}/leaflet.css">`;
 const LAYER_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const LAYER_COPY = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
