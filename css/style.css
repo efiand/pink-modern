@@ -43,6 +43,9 @@
 body {
   margin: 0;
 }
+body:focus {
+  outline: none;
+}
 a {
   color: inherit;
   -webkit-text-decoration-skip-ink: none;
@@ -1697,6 +1700,8 @@ img {
 }
 @media (min-width: 980px) {
   .catalog {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 55px;
     box-sizing: border-box;
   }
 }
@@ -1710,8 +1715,23 @@ img {
 .catalog__item--big {
   grid-column: 1 / -1;
 }
+@media (min-width: 660px) {
+  .catalog__item--big {
+    margin-bottom: 30px;
+  }
+}
+@media (min-width: 980px) {
+  .catalog__item--big {
+    margin-bottom: -4px;
+  }
+}
+.catalog__photo {
+  height: 100%;
+}
 .photo {
   position: relative;
+  display: flex;
+  flex-direction: column;
   line-height: 24px;
   background-color: var(--color-lightgrey);
 }
@@ -1744,15 +1764,24 @@ img {
   .photo__picture img {
     max-width: none;
     object-fit: cover;
+    height: 300px;
+  }
+}
+@media (min-width: 980px) {
+  .photo__picture img {
+    height: 400px;
   }
 }
 .photo__quote {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
   margin: 0;
   padding: 17px 11px 19px 17px;
 }
 @media (min-width: 660px) {
   .photo__quote {
-    padding: 22px 30px 26px;
+    padding: 22px 30px 25px;
   }
 }
 @media (min-width: 980px) {
@@ -1780,17 +1809,34 @@ img {
   margin: 0 0 11px;
   font-size: 14px;
 }
+@media (min-width: 660px) {
+  .photo__description {
+    min-height: 48px;
+  }
+}
 .photo__likes-form {
   display: flex;
   align-items: center;
   justify-self: end;
   grid-area: likes;
+  margin-top: auto;
   color: var(--color-pink);
+}
+@media (min-width: 660px) {
+  .photo__likes-form {
+    justify-content: space-between;
+  }
 }
 .photo__likes {
   margin: 0 0 0 18px;
   font-size: 12px;
   text-transform: uppercase;
+}
+@media (min-width: 660px) {
+  .photo__likes {
+    order: -1;
+    margin-left: 0;
+  }
 }
 .photo__like-submit {
   height: 24px;
@@ -1836,17 +1882,14 @@ img {
 }
 @media (min-width: 660px) {
   .photo--panorama .photo__description {
+    min-height: 24px;
     margin-bottom: 0;
   }
 }
 @media (min-width: 660px) {
   .photo--panorama .photo__likes-form {
     margin-top: 2px;
-  }
-}
-@media (min-width: 660px) {
-  .photo--panorama .photo__likes {
-    order: -1;
+    margin-left: 20px;
   }
 }
 @media (min-width: 660px) {
