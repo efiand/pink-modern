@@ -1901,11 +1901,34 @@ img {
   padding: 20px 20px 29px;
   background-color: var(--color-lightgrey);
 }
+@media (min-width: 660px) {
+  .add {
+    padding-top: 42px;
+    padding-bottom: 54px;
+  }
+}
+@media (min-width: 660px) {
+  .add__form {
+    display: grid;
+    grid-template-areas: "file filters" "file submit" "file reset";
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr min-content min-content;
+    gap: 24px 45px;
+  }
+}
 .add__file {
   display: flex;
+  grid-area: file;
   max-width: 300px;
   height: 374px;
   margin: 0 auto;
+}
+@media (min-width: 660px) {
+  .add__file {
+    width: 100%;
+    height: 400px;
+    margin-top: 15px;
+  }
 }
 .add__file:focus-within {
   outline: 2px solid var(--color-pink);
@@ -1925,6 +1948,11 @@ img {
   cursor: pointer;
   filter: grayscale(var(--grayscale));
 }
+@media (min-width: 660px) {
+  .add__file-chooser {
+    --image: url("../img/photo-add.jpg");
+  }
+}
 .add__file-chooser::after {
   content: "";
   position: absolute;
@@ -1940,12 +1968,19 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-area: filters;
   margin: -35px 0 38px -47px;
   padding: 42px 20px 73px;
   border: none;
 }
+@media (min-width: 660px) {
+  .add__filters {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+}
 .add__filters::after {
-  content: "";
   position: absolute;
   right: -20px;
   bottom: 0;
@@ -1953,16 +1988,41 @@ img {
   height: 1px;
   background-color: var(--color-darkblue-10);
 }
+@media (max-width: 659px) {
+  .add__filters::after {
+    content: "";
+  }
+}
 .add__filter {
   margin: 35px 0 0 35px;
 }
+@media (min-width: 660px) {
+  .add__filter {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 24px 18px 24px 0;
+    border-bottom: 1px solid var(--color-darkblue-10);
+  }
+}
 .add__filter-toggler {
+  flex-shrink: 0;
   padding: 0;
   color: var(--color-darkblue-30);
   background-color: transparent;
   border: none;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
+}
+@media (min-width: 660px) {
+  .add__filter-toggler {
+    display: flex;
+    width: 30px;
+    height: 22px;
+    margin-right: 25px;
+    color: var(--color-pink);
+    pointer-events: none;
+  }
 }
 .add__filter-toggler:hover {
   color: var(--color-darkblue-50);
@@ -1973,7 +2033,14 @@ img {
 .add__filter-toggler::before {
   content: "";
   display: block;
+  margin: auto;
   background-color: currentColor;
+}
+@media (min-width: 660px) {
+  .add__filter-toggler::before {
+    -webkit-mask-size: cover;
+            mask-size: cover;
+  }
 }
 .add__filter-toggler--crop::before {
   width: 44px;
@@ -1981,17 +2048,35 @@ img {
   -webkit-mask-image: url("../img/icon-crop.svg");
           mask-image: url("../img/icon-crop.svg");
 }
+@media (min-width: 660px) {
+  .add__filter-toggler--crop::before {
+    width: 22px;
+    height: 22px;
+  }
+}
 .add__filter-toggler--pink::before {
   width: 48px;
   height: 43px;
   -webkit-mask-image: url("../img/icon-fill.svg");
           mask-image: url("../img/icon-fill.svg");
 }
+@media (min-width: 660px) {
+  .add__filter-toggler--pink::before {
+    width: 24px;
+    height: 22px;
+  }
+}
 .add__filter-toggler--grayscale::before {
   width: 32px;
   height: 32px;
   -webkit-mask-image: url("../img/icon-grayscale.svg");
           mask-image: url("../img/icon-grayscale.svg");
+}
+@media (min-width: 660px) {
+  .add__filter-toggler--grayscale::before {
+    width: 16px;
+    height: 16px;
+  }
 }
 .add__range {
   position: absolute;
@@ -2001,6 +2086,13 @@ img {
   width: calc(100% - 87px);
   margin: 0;
 }
+@media (min-width: 660px) {
+  .add__range {
+    position: static;
+    display: block;
+    width: 100%;
+  }
+}
 .add__filter--active .add__filter-toggler {
   color: var(--color-pink);
 }
@@ -2008,6 +2100,7 @@ img {
   display: block;
 }
 .add__button {
+  grid-area: submit;
   width: 100%;
   margin: 0 0 12px;
   padding: 15px 40px 16px;
@@ -2025,6 +2118,12 @@ img {
   transition-duration: 0.3s;
   transition-property: color, background-color, border-color;
 }
+@media (min-width: 660px) {
+  .add__button {
+    width: auto;
+    margin: 0 13px 0 2px;
+  }
+}
 .add__button:hover {
   color: var(--color-white);
   background-color: var(--color-pink);
@@ -2034,6 +2133,7 @@ img {
   background-color: var(--color-pink);
 }
 .add__button--reset {
+  grid-area: reset;
   color: var(--color-darkblue-10);
   border-color: var(--color-darkblue-10);
 }
