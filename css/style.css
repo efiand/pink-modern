@@ -68,9 +68,17 @@ img {
   outline: 2px solid var(--color-pink);
   outline-offset: 0;
 }
-.visually-hidden {
-  position: fixed;
-  transform: scale(0);
+@media (max-width: 659px) {
+  .visually-hidden {
+    position: fixed;
+    transform: scale(0);
+  }
+}
+@media (min-width: 660px) {
+  .visually-hidden:not(.visually-hidden--mobile) {
+    position: fixed;
+    transform: scale(0);
+  }
 }
 .page {
   display: flex;
@@ -138,8 +146,33 @@ img {
   line-height: 30px;
   text-align: center;
 }
+@media (min-width: 660px) {
+  .content__lead {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 90px 50px 78px;
+    font-size: 18px;
+  }
+}
+@media (min-width: 980px) {
+  .content__lead {
+    padding-bottom: 90px;
+  }
+}
 .content__lead:last-child {
   padding-bottom: 42px;
+}
+@media (min-width: 660px) {
+  .content__lead:last-child {
+    padding-top: 64px;
+    padding-bottom: 70px;
+  }
+}
+@media (min-width: 980px) {
+  .content__lead:last-child {
+    padding-top: 58px;
+    padding-bottom: 67px;
+  }
 }
 .content__slot {
   margin: 0;
@@ -1657,13 +1690,30 @@ img {
   padding: 0 20px;
   list-style: none;
 }
+@media (min-width: 660px) {
+  .catalog {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 980px) {
+  .catalog {
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 980px) and (min-width: 980px) {
+  .catalog {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+.catalog__item--big {
+  grid-column: 1 / -1;
+}
 .photo {
   position: relative;
   line-height: 24px;
   background-color: var(--color-lightgrey);
-}
-.photo__body {
-  margin: 0;
 }
 .photo__label {
   position: absolute;
@@ -1677,23 +1727,47 @@ img {
   text-transform: uppercase;
   background-color: var(--color-pink);
 }
+@media (min-width: 660px) {
+  .photo__label {
+    top: 57px;
+  }
+}
+@media (min-width: 980px) {
+  .photo__label {
+    top: 54px;
+  }
+}
 .photo__picture {
   display: block;
 }
-.photo__picture--panorama {
-  margin: 0 -20px;
-}
-.photo__content {
-  padding: 17px 11px 11px 17px;
+@media (min-width: 660px) {
+  .photo__picture img {
+    max-width: none;
+    object-fit: cover;
+  }
 }
 .photo__quote {
   margin: 0;
+  padding: 17px 11px 19px 17px;
+}
+@media (min-width: 660px) {
+  .photo__quote {
+    padding: 22px 30px 26px;
+  }
+}
+@media (min-width: 980px) {
+  .photo__quote {
+    padding-bottom: 23px;
+    padding-left: 27px;
+  }
 }
 .photo__cite {
+  grid-area: author;
   margin: 0;
 }
 .photo__author {
   font-weight: 700;
+  font-size: 14px;
   font-style: normal;
 }
 .photo__time {
@@ -1702,21 +1776,24 @@ img {
   text-transform: uppercase;
 }
 .photo__description {
-  margin: 0;
+  grid-area: text;
+  margin: 0 0 11px;
+  font-size: 14px;
 }
 .photo__likes-form {
   display: flex;
   align-items: center;
-  padding: 0 17px 19px;
+  justify-self: end;
+  grid-area: likes;
   color: var(--color-pink);
 }
 .photo__likes {
-  margin: 0;
+  margin: 0 0 0 18px;
   font-size: 12px;
   text-transform: uppercase;
 }
 .photo__like-submit {
-  margin-right: 18px;
+  height: 24px;
   padding: 0;
   color: var(--color-pink);
   background-color: transparent;
@@ -1736,6 +1813,46 @@ img {
 }
 .photo__like-submit:active {
   color: var(--color-pink-30);
+}
+@media (min-width: 660px) {
+  .photo--panorama .photo__quote {
+    display: grid;
+    grid-template-areas: "author likes" "text text";
+    grid-template-columns: 3fr 2fr;
+  }
+}
+.photo--panorama .photo__picture {
+  margin: 0 -20px;
+}
+@media (min-width: 660px) {
+  .photo--panorama .photo__picture img {
+    height: 509px;
+  }
+}
+@media (min-width: 980px) {
+  .photo--panorama .photo__picture img {
+    height: 506px;
+  }
+}
+@media (min-width: 660px) {
+  .photo--panorama .photo__description {
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 660px) {
+  .photo--panorama .photo__likes-form {
+    margin-top: 2px;
+  }
+}
+@media (min-width: 660px) {
+  .photo--panorama .photo__likes {
+    order: -1;
+  }
+}
+@media (min-width: 660px) {
+  .photo--panorama .photo__like-submit {
+    margin-left: 16px;
+  }
 }
 .add {
   padding: 20px 20px 29px;
@@ -1934,12 +2051,6 @@ img {
 }
 .fieldset__title--alone {
   margin-bottom: 17px;
-}
-@media (max-width: 659px) {
-  .fieldset__title--mobile-hidden {
-    position: fixed;
-    transform: scale(0);
-  }
 }
 .fieldset__list {
   clear: both;
