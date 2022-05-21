@@ -391,6 +391,8 @@ img {
   box-sizing: border-box;
 }
 .page-header__logo {
+  --color-glasses: currentColor;
+  --color-glasses-stars: var(--color-pink);
   position: relative;
   z-index: 1;
   display: block;
@@ -467,6 +469,19 @@ img {
 }
 .page-header--closed .page-header__top {
   transition: background-color 0.3s 0.1s ease-in-out;
+}
+.logo {
+  --color-text: currentColor;
+}
+.logo:hover:not(:active) {
+  color: var(--color-pink);
+}
+.logo:active {
+  opacity: 0.3;
+}
+.logo__image {
+  display: block;
+  transition: inherit;
 }
 .nav__list {
   margin: 0;
@@ -1330,8 +1345,17 @@ img {
   line-height: 18px;
   text-decoration: none;
 }
+.logo-dev:hover .logo-dev__image {
+  color: var(--color-darkblue);
+}
+.logo-dev:active .logo-dev__image {
+  color: var(--color-darkblue-30);
+}
 .logo-dev__image {
+  --color-logo: currentColor;
   margin-left: 15px;
+  color: var(--color-pink);
+  transition: inherit;
 }
 .page-footer {
   display: grid;
@@ -1343,7 +1367,9 @@ img {
 }
 .page-footer__logo {
   min-height: 40px;
-  outline: 2px solid var(--color-pink);
+}
+.page-footer__logo:hover:not(:active) {
+  --color-glasses-stars: currentColor;
 }
 .page-footer__socials {
   margin: -9px 0 0 -9px;
@@ -1483,10 +1509,6 @@ img {
   .page-header__heading {
     font-size: 50px;
     line-height: 68px;
-  }
-  .logo__image {
-    width: 145px;
-    height: 40px;
   }
   .promo {
     width: 300px;
@@ -1798,6 +1820,11 @@ img {
     margin-top: -110px;
     padding-top: 177px;
     padding-bottom: 39px;
+  }
+  .logo__image {
+    --visibility-glasses: block;
+    --visibility-stars: none;
+    --translate-text-x: -1px;
   }
   .markets__link--windows {
     background-position-y: 13px;
@@ -2414,6 +2441,13 @@ img {
     width: calc(300% - 120px);
     table-layout: fixed;
   }
+  .page-header__logo {
+    --visibility-glasses: none;
+    --translate-text-x: -72px;
+    --translate-text-y: -17px;
+    --logo-width: 74px;
+    --logo-height: 23px;
+  }
   .page-header__collage {
     margin-top: -66px;
     padding: 89px 0 0;
@@ -2427,6 +2461,11 @@ img {
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
+  }
+  .logo__image {
+    --visibility-stars: none;
+    width: var(--logo-width, 147px);
+    height: var(--logo-height, 40px);
   }
   .features__item + .features__item {
     margin-top: 31px;
@@ -2483,6 +2522,11 @@ img {
   .fieldset__title {
     float: left;
     width: 100%;
+  }
+  .page-footer__logo {
+    --visibility-glasses: block;
+    --translate-text-x: -1px;
+    justify-self: center;
   }
 }
 @media (max-width: 659px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 659px) and (min-resolution: 2dppx) {
