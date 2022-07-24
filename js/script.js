@@ -27,9 +27,18 @@ const createApp = () => {
       }
 
       evt.preventDefault();
+      if (href.endsWith(location.pathname)) {
+        return;
+      }
 
       fetch(href)
-        .then((res) => res.text())
+        .then((res) => {
+          if (!res.ok) {
+            location = href;
+          }
+
+          return res.text();
+        })
         .then((html) => {
           const [, template] = html.match(/<body>(.*)<\/body>/s);
           const [, title] = html.match(/<title>(.*)<\/title>/s);
@@ -37,6 +46,9 @@ const createApp = () => {
           document.body.innerHTML = template;
           titleElement.innerHTML = title;
           createApp();
+        })
+        .catch(() => {
+          location = href;
         });
     });
   });
